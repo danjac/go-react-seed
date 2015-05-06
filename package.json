@@ -35,13 +35,17 @@
     "webpack-dev-server": "^1.8.0"
   },
   "dependencies": {
+    "alt": "^0.16.1",
     "babel": "^5.0.0",
     "bcryptjs": "^2.1.0",
     "checkit": "^0.5.1",
     "classnames": "^1.2.0",
     "co": "^4.5.1",
+    "co-body": "^1.1.0",
     "dotenv": "^1.0.0",
     "ejs": "^2.3.1",
+    "gulp-util": "^3.0.4",
+    "immutable": "^3.7.2",
     "jsdom": "^4.2.0",
     "koa": "^0.19.0",
     "koa-body": "^1.2.0",
