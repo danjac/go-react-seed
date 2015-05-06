@@ -1,19 +1,17 @@
-React-koa-mongodb seed
+React-go seed
 ===================
 
+Basic set up for starting a ReactJS and Go application.
 
 It's built with the following tech:
 
 - ES6 + Babel
-- NodeJS
-- Koa
 - React
 - React-router
-- Reflux
-- Bootstrap
-- Mongoose
-- Mocha
-- Webpack + Gulp
+- Alt
+- Go 
+- Gin-gonic
+- Twitter bootstrap
 
 Setup
 -----
@@ -27,6 +25,6 @@ Setup
         DB_NAME=my_database_name
         DB_HOST=my host name
 
-1. **babel-node server.js**
+1. **go run main.go**
 1. Open a browser at *localhost:3000* and you should be good to go.
 
