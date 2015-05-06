@@ -26,12 +26,14 @@ func index(c *gin.Context) {
 		URL:        c.Request.URL.Path,
 		CSRF:       nosurf.Token(c.Request),
 		Production: false,
-		InitData:   "{ \"MessageStore\": { \"messages\": [ {\"level\": \"success\", \"text\": \"Welcome\" }] } }",
+		// init data passed as JSON to bootstrap client application
+		InitData: "{ \"MessageStore\": { \"messages\": [ {\"level\": \"success\", \"text\": \"Welcome\" }] } }",
 	}
 
 	c.HTML(http.StatusOK, "index.tmpl", s)
 }
 
+// example middleware: get/set global DB connection
 func getDB(c *gin.Context) *DB {
 	return c.MustGet("DB").(*DB)
 }
@@ -49,10 +51,9 @@ func main() {
 
 	r := gin.Default()
 	r.LoadHTMLGlob("templates/*")
+	r.Use(withDB(db))
 
-	dbgrp := r.Group("/")
-	dbgrp.Use(withDB(db))
-	dbgrp.GET("/", index)
+	r.GET("/", index)
 
 	r.Static("/js/", "./public/js")
 	r.Static("/css/", "./public/css")
