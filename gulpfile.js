@@ -15,7 +15,7 @@ var bowerFiles = require('main-bower-files'),
     notify = require('gulp-notify');
 
 var staticDir = './public',
-    srcDir = './app',
+    srcDir = './ui',
     cssFilter = gulpFilter('*.css'),
     jsFilter = gulpFilter('*.js'),
     fontFilter = gulpFilter(['*.eot', '*.woff', '*.svg', '*.ttf']);
@@ -29,7 +29,7 @@ var dest = {
 };
 
 gulp.task("watch", ["build"], function() {
-	gulp.watch(["app/**/*"], ["build"]);
+	gulp.watch(["ui/**/*"], ["build"]);
 });
 
 
@@ -63,7 +63,7 @@ gulp.task("build", ["install", "pkg"], function(callback) {
             verbose: false,
             devServer: false,
             devtool: 'eval',
-            entry: ['./app/app.js'],
+            entry: ['./ui/app.js'],
             plugins: [
                 new webpack.optimize.UglifyJsPlugin({
                     warnings: false
