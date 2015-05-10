@@ -6,18 +6,15 @@ class MessageStore {
 
     constructor() {
         this.messages = [];
-        this.bindListeners({
-            dismissAlert: Actions.DISMISS_ALERT
-        });
+        this.bindActions(alt.getActions('Actions'));
     }
 
     addMessage(level, msg) {
-        this.messages = this.messages.push({ level: level, text: msg });
+        this.messages.push({ level: level, text: msg });
     }
 
     dismissAlert(index) {
         this.messages.splice(index, 1);
-        //this.setState({ messages: this.messages });
     }
 
     success(msg){

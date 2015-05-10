@@ -58,6 +58,8 @@ func main() {
 	r.Static("/js/", "./public/js")
 	r.Static("/css/", "./public/css")
 
+	r.NoRoute(index)
+
 	n := negroni.Classic()
 	n.UseHandler(nosurf.New(r))
 	n.Run(":4040")
